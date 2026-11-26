@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.audio(f"1/{line[1:]}.mp3")
+st.audio("Welcome to the Votic course. First off, let's learn how to say hello.mp3")
