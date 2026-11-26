@@ -21,15 +21,18 @@ import streamlit as st
 from gtts import gTTS
 import io
 
-# Hide all st.audio widgets on the page
-st.html(
+st.markdown(
     """
     <style>
-        div[data-testid="stAudio"] {
-            display: none;
+        audio {
+            display: none !important;
+        }
+        div:has(> audio) {
+            display: none !important;
         }
     </style>
-    """
+    """,
+    unsafe_allow_html=True,
 )
 
 with open("1/1.txt", encoding="utf-8") as f:
