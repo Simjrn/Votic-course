@@ -1,5 +1,5 @@
 import streamlit as st
-from gTTS import gtts
+from gtts import gTTS
 
 audio = gTTS(text="hello", lang="en", slow=False)
 audio.save("audio.mp3")
