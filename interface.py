@@ -33,7 +33,7 @@ with open ("1/1.txt", encoding='utf-8') as f:
       audio = gTTS(text=split[num][1:index], lang="en", slow=False)
       audio.save("audio.mp3")
       autoplay_audio("audio.mp3")
-    if split[num].startswith("+"):
+    if split[num].startswith("-"):
       index = split[num].find(":")
       audio = gTTS(text=split[num][1:index], lang="en", slow=False)
       audio.save("audio.mp3")
