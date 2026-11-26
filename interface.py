@@ -53,7 +53,7 @@ if current_line.startswith("-"):
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
         time.sleep(len(text_to_speak)/5)
         st.divider()
-        st.header(f":purple[{current_line[index+1:]}]")
+        st.header(f":blue[{current_line[index+1:]}]")
 elif current_line.startswith("+"):
     index = current_line.find(":")
     text_to_speak = current_line[1:index] if index != -1 else current_line[1:]
