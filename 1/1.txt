@@ -1,6 +1,6 @@
 +Welcome to the Votic course. First off, let's learn how to say hello:tere
--Hello:tere.mp3
--Hello, Gary:tere_Gary.mp3
+-Hello:tere
+-Hello, Gary:tere_Gary
 +'I', in Votic is:miä
 -I:miä
 +'I am', in Votic is:miä õõn
