@@ -2,6 +2,8 @@ import streamlit as st
 from gtts import gTTS
 import base64
 import random
+import time
+import io
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -14,9 +16,6 @@ def autoplay_audio(file_path: str):
             """
         st.markdown(md, unsafe_allow_html=True)
 
-import streamlit as st
-from gtts import gTTS
-import io
 
 st.markdown(
     """
@@ -50,8 +49,10 @@ if current_line.startswith("-"):
         tts.write_to_fp(audio_bytes)
         audio_bytes.seek(0)
         
-        st.write(text_to_speak)
+        st.header(text_to_speak)
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+        time.wait(len(text_to_speak)/3)
+        st.write(current_line[index+1:])
 elif current_line.startswith("+"):
     index = current_line.find(":")
     text_to_speak = current_line[1:index] if index != -1 else current_line[1:]
@@ -61,5 +62,5 @@ elif current_line.startswith("+"):
         tts = gTTS(text=text_to_speak, lang="en", slow=False)
         tts.write_to_fp(audio_bytes)
         audio_bytes.seek(0)
-        
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
         st.write(text_to_speak)
