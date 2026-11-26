@@ -1,5 +1,9 @@
-+Welcome to the Votic course. First off, let's learn how to say hello
-#tere.mp3
++Welcome to the Votic course. First off, let's learn how to say hello:tere
 -Hello:tere.mp3
 -Hello, Gary:tere_Gary.mp3
-+I
++I in Votic is:miä
+-I:miä
++I am in Votic is:miä õõn
+-I am:miä õon
+-I am Peter:miä õõn Petteri
+-Hello, I am Peter:Tere, miä õõn Petteri
