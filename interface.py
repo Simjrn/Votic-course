@@ -1,5 +1,8 @@
 import streamlit as st
 
+ audio = gTTS(text="hello", lang="en", slow=False)
+      audio.save("audio.mp3")
+      autoplay_audio("audio.mp3")
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
