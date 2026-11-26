@@ -13,27 +13,32 @@ def autoplay_audio(file_path: str):
             </audio>
             """
         st.markdown(md, unsafe_allow_html=True)
+import streamlit as st
+from gtts import gTTS
+import io
 
-randint = random.randrange(1,100000)
+with open("1/1.txt", encoding="utf-8") as f:
+    split = f.read().splitlines()
 
-view = st.empty()
-screen = view.container()
+# Render a single slider outside of any loop
+num = st.slider("Go to question number ...", min_value=0, value=0, max_value=len(split) - 1)
+current_line = split[num]
 
-with open ("1/1.txt", encoding='utf-8') as f:
-  f = f.read()
-  split = f.splitlines()
-  slide = 0
-  for line in split:
-    num = screen.slider("Go to question number ...", min_value=0, value=slide, max_value=len(split)-1, key=randint)
-    if split[num].startswith("+"):
-      index = split[num].find(":")
-      audio = gTTS(text=split[num][1:index], lang="en", slow=False)
-      audio.save("audio.mp3")
-      autoplay_audio("audio.mp3")
-      st.write(split[num][1:index])
-    if split[num].startswith("-"):
-      index = split[num].find(":")
-      audio = gTTS(text=split[num][1:index], lang="en", slow=False)
-      audio.save("audio.mp3")
-      autoplay_audio("audio.mp3")
-      st.write(split[num][1:index])
+# Check if the line starts with + or -
+if current_line.startswith(("+", "-")):
+    index = current_line.find(":")
+    # Safely extract text up to ':' (or the whole line if ':' isn't found)
+    text_to_speak = current_line[1:index] if index != -1 else current_line[1:]
+    
+    if text_to_speak.strip():
+        # Save audio to memory buffer instead of overwriting a local file
+        audio_bytes = io.BytesIO()
+        tts = gTTS(text=text_to_speak, lang="en", slow=False)
+        tts.write_to_fp(audio_bytes)
+        audio_bytes.seek(0)
+        
+        st.write(text_to_speak)
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+else:
+    st.write(current_line)
+
