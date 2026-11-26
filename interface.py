@@ -65,3 +65,5 @@ elif current_line.startswith("+"):
         audio_bytes.seek(0)
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
         st.write(text_to_speak)
+        st.divider()
+        st.header(f":blue[{current_line[index+1:]}]")
