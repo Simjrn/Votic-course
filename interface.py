@@ -1,6 +1,7 @@
 import streamlit as st
 from gtts import gTTS
 import base64
+import random
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -13,7 +14,7 @@ def autoplay_audio(file_path: str):
             """
         st.markdown(md, unsafe_allow_html=True)
 
-
+randint = random.randrange(1,100000)
 
 view = st.empty()
 screen = view.container()
@@ -23,7 +24,7 @@ with open ("1/1.txt", encoding='utf-8') as f:
   split = f.splitlines()
   slide = 0
   for line in split:
-    num = screen.slider("Go to question number ...", min_value=0, value=slide, max_value=len(split)-1)
+    num = screen.slider("Go to question number ...", min_value=0, value=slide, max_value=len(split)-1, key=randint)
     if split[num].startswith("+"):
       index = split[num].find(":")
       audio = gTTS(text=split[num][1:index], lang="en", slow=False)
