@@ -40,7 +40,19 @@ with open("1/1.txt", encoding="utf-8") as f:
 num = st.slider("Go to question number ...", min_value=0, value=0, max_value=len(split) - 1)
 current_line = split[num]
 
-if current_line.startswith(("+", "-")):
+if current_line.startswith("+"):
+    index = current_line.find(":")
+    text_to_speak = f"What is {current_line[1:index]} in Votic?" if index != -1 else current_line[1:]
+    
+    if text_to_speak.strip():
+        audio_bytes = io.BytesIO()
+        tts = gTTS(text=text_to_speak, lang="en", slow=False)
+        tts.write_to_fp(audio_bytes)
+        audio_bytes.seek(0)
+        
+        st.write(text_to_speak)
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+elif current_line.startswith("+"):
     index = current_line.find(":")
     text_to_speak = current_line[1:index] if index != -1 else current_line[1:]
     
@@ -51,6 +63,3 @@ if current_line.startswith(("+", "-")):
         audio_bytes.seek(0)
         
         st.write(text_to_speak)
-        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-else:
-    st.write(current_line)
