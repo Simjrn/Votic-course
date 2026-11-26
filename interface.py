@@ -42,7 +42,7 @@ current_line = split[num]
 
 if current_line.startswith("-"):
     index = current_line.find(":")
-    text_to_speak = f"What is {current_line[1:index]} in Votic?" if index != -1 else current_line[1:]
+    text_to_speak = f"What is '{current_line[1:index]}' in Votic?" if index != -1 else current_line[1:]
     
     if text_to_speak.strip():
         audio_bytes = io.BytesIO()
