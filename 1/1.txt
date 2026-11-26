@@ -3,7 +3,7 @@
 -Hello, Gary:tere_Gary.mp3
 +I in Votic is:miä
 -I:miä
-+I am in Votic is:miä õõn
++'I am', in Votic is:miä õõn
 -I am:miä õon
 -I am Peter:miä õõn Petteri
 -Hello, I am Peter:Tere, miä õõn Petteri
