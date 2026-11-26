@@ -1,5 +1,6 @@
 import streamlit as st
 from gtts import gTTS
+import base64
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
