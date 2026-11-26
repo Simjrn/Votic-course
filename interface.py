@@ -4,6 +4,7 @@ view = st.empty()
 screen = view.container()
 
 with open ("1/1.txt", encoding='utf-8') as f:
+  f = f.read()
   split = f.splitlines
   slide = 0
   for line in split:
