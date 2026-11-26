@@ -40,7 +40,7 @@ with open("1/1.txt", encoding="utf-8") as f:
 num = st.slider("Go to question number ...", min_value=0, value=0, max_value=len(split) - 1)
 current_line = split[num]
 
-if current_line.startswith("+"):
+if current_line.startswith("-"):
     index = current_line.find(":")
     text_to_speak = f"What is {current_line[1:index]} in Votic?" if index != -1 else current_line[1:]
     
