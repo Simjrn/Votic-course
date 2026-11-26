@@ -1,9 +1,9 @@
 +Welcome to the Votic course. First off, let's learn how to say hello:tere
 -Hello:tere
--Hello, Gary:tere_Gary
+-Hello, Gary:tere, Gary
 +'I', in Votic is:miä
 -I:miä
 +'I am', in Votic is:miä õõn
--I am:miä õon
+-I am:miä õõn
 -I am Peter:miä õõn Petteri
--Hello, I am Peter:Tere, miä õõn Petteri
+-Hello, I am Peter:tere, miä õõn Petteri
