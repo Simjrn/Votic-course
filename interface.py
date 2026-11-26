@@ -1,10 +1,6 @@
 import streamlit as st
 from gtts import gTTS
 
-audio = gTTS(text="hello", lang="en", slow=False)
-audio.save("audio.mp3")
-autoplay_audio("audio.mp3")
-
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -15,6 +11,11 @@ def autoplay_audio(file_path: str):
             </audio>
             """
         st.markdown(md, unsafe_allow_html=True)
+
+
+audio = gTTS(text="hello", lang="en", slow=False)
+audio.save("audio.mp3")
+autoplay_audio("audio.mp3")
 
 
 view = st.empty()
