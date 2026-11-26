@@ -51,7 +51,7 @@ if current_line.startswith("-"):
         
         st.header(text_to_speak)
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-        time.wait(len(text_to_speak)/3)
+        time.sleep(len(text_to_speak)/3)
         st.write(current_line[index+1:])
 elif current_line.startswith("+"):
     index = current_line.find(":")
