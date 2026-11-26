@@ -14,10 +14,6 @@ def autoplay_audio(file_path: str):
         st.markdown(md, unsafe_allow_html=True)
 
 
-audio = gTTS(text="hello", lang="en", slow=False)
-audio.save("audio.mp3")
-autoplay_audio("audio.mp3")
-
 
 view = st.empty()
 screen = view.container()
@@ -38,3 +34,4 @@ with open ("1/1.txt", encoding='utf-8') as f:
       audio = gTTS(text=split[num][1:index], lang="en", slow=False)
       audio.save("audio.mp3")
       autoplay_audio("audio.mp3")
+      st.write(split[num][1:index]
