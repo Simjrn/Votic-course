@@ -38,7 +38,7 @@ if current_line.startswith(("+", "-")):
         audio_bytes.seek(0)
         
         st.write(text_to_speak)
-        autoplay_audio(audio_bytes, format="audio/mp3", autoplay=True)
+        autoplay_audio(audio_bytes)
 else:
     st.write(current_line)
 
