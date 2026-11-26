@@ -13,9 +13,6 @@ def autoplay_audio(file_path: str):
             </audio>
             """
         st.markdown(md, unsafe_allow_html=True)
-import streamlit as st
-from gtts import gTTS
-import io
 
 import streamlit as st
 from gtts import gTTS
@@ -24,11 +21,13 @@ import io
 st.markdown(
     """
     <style>
-        audio {
-            display: none !important;
-        }
-        div:has(> audio) {
-            display: none !important;
+        div:has(> audio), audio {
+            height: 0px !important;
+            width: 0px !important;
+            opacity: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            pointer-events: none !important;
         }
     </style>
     """,
@@ -52,7 +51,6 @@ if current_line.startswith(("+", "-")):
         audio_bytes.seek(0)
         
         st.write(text_to_speak)
-        # Audio still plays automatically, even while hidden
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
 else:
     st.write(current_line)
