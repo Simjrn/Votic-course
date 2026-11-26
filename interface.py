@@ -1,3 +1,11 @@
 import streamlit as st
 
-st.audio("Welcome to the Votic course. First off, let's learn how to say hello.mp3")
+view = st.empty()
+screen = view.container()
+
+with open ("1/1.txt", encoding='utf-8') as f:
+  split = f.splitlines)
+  slide = 0
+  for line in split:
+    num = screen.slider("Go to question number ...", min_value=0, value=slide, max_value=len(split))
+    st.write(split[num])    
